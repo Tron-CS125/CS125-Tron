@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <SeekBar
+            android:id="@+id/soundsSeekBar"
+            android:layout_width="352dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="29dp"
+            android:layout_marginLeft="29dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:max="100"
+            android:progress="100"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/soundsText" />
+
+        <Button
+            android:id="@+id/colorButton"
+            android:layout_width="96dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="74dp"
+            android:layout_marginLeft="74dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginBottom="72dp"
+            android:text="@string/color"
+            app:layout_constraintBottom_toTopOf="@+id/soundOptionsText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/designButton"
+            app:layout_constraintTop_toBottomOf="@+id/playerOptionsText" />
+
+        <Button
+            android:id="@+id/designButton"
+            android:layout_width="96dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="73dp"
+            android:layout_marginLeft="73dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="72dp"
+            android:text="@string/design"
+            app:layout_constraintBottom_toTopOf="@+id/soundOptionsText"
+            app:layout_constraintEnd_toStartOf="@+id/colorButton"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playerOptionsText" />
+
+        <TextView
+            android:id="@+id/playerOptionsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="53dp"
+            android:layout_marginEnd="88dp"
+            android:layout_marginRight="88dp"
+            android:text="@string/player_options"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/soundOptionsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="86dp"
+            android:layout_marginRight="86dp"
+            android:text="@string/sound_options"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/colorButton" />
+
+        <Button
+            android:id="@+id/backFromOptions"
+            android:layout_width="122dp"
+            android:layout_height="67dp"
+            android:text="@string/go_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/soundOptionsText"
+            app:layout_constraintVertical_bias="0.863" />
+
+        <TextView
+            android:id="@+id/soundsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="171dp"
+            android:layout_marginLeft="171dp"
+            android:layout_marginTop="450dp"
+            android:layout_marginEnd="172dp"
+            android:layout_marginRight="172dp"
+            android:layout_marginBottom="100dp"
+            android:text="@string/sounds"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/soundsSeekBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/musicText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="178dp"
+            android:layout_marginLeft="178dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginEnd="178dp"
+            android:layout_marginRight="178dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/music"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/musicSeekBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/soundOptionsText" />
+
+        <SeekBar
+            android:id="@+id/musicSeekBar"
+            android:layout_width="352dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="29dp"
+            android:layout_marginLeft="29dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:max="100"
+            android:progress="100"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/musicText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
