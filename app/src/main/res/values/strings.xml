@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Tron</string>
+    <string name="startButton">Start Game</string>
+    <string name="logoName">Tron Logo</string>
+    <string name="enterName">Enter Name</string>
+    <string name="displayName">Enter Name You Want Displayed</string>
+    <string name="submitButton">Submit</string>
 </resources>
