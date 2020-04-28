@@ -11,7 +11,7 @@ public class SnakeActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        Button next = (Button) findViewById(R.id.startGameButton);
+        Button next = findViewById(R.id.startGameButton);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
