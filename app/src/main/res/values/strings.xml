@@ -23,4 +23,6 @@
     <string name="orange">Orange</string>
     <string name="red">Red</string>
     <string name="ultimate_snake_replace_later_with_custom_logo">ULTIMATE SNAKE (replace later with custom logo)</string>
+    <string name="right">Right</string>
+    <string name="left">Left</string>
 </resources>
