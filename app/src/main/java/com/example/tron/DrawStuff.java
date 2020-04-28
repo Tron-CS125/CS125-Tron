@@ -51,27 +51,7 @@ public class DrawStuff extends View {
         linePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         linePaint.setColor(Color.BLACK);
         linePaint.setStyle(Paint.Style.STROKE);
-        // size is going to be input by user 1-5 sizes is a thing i guess, gonna keep it 1 for now
-        // drawLines goes [x0, y0, x1, y1] etc.
-        int size = 21;
-        horizontalLines = new float[(size * 4)];
-        verticalLines = new float[size * 4];
-        // horizontal lines
-        float offset = dimensions / size;
-        float lastCoord = (((horizontalLines.length - 4)/4) * offset) + 24;
-        for (int i = 0; i < horizontalLines.length; i += 4) {
-            horizontalLines[i] = 24;
-            horizontalLines[i + 1] = (offset * (i/4)) + 24;
-            horizontalLines[i + 2] = lastCoord;
-            horizontalLines[i + 3] = (offset * (i/4)) + 24;
-        }
-        // verticle lines
-        for (int i = 0; i < verticalLines.length; i += 4) {
-            verticalLines[i + 1] = 24;
-            verticalLines[i] = (offset * (i/4)) + 24;
-            verticalLines[i + 3] = lastCoord;
-            verticalLines[i + 2] = (offset * (i/4)) + 24;
-        }
+
     }
 
     @Override
@@ -80,9 +60,35 @@ public class DrawStuff extends View {
         rect.top = 0;
         rect.right = 1000;
         rect.bottom = 1000;
+        makeLines(canvas);
         rectPaint.setColor(Color.BLACK);
         canvas.drawLines(horizontalLines, linePaint);
         canvas.drawLines(verticalLines, linePaint);
 //        canvas.drawRect(rect, rectPaint);
+    }
+
+    private void makeLines(Canvas canvas) {
+        dimensions = canvas.getWidth();
+        // size is going to be input by user 1-5 sizes is a thing i guess, gonna keep it 1 for now
+        // drawLines goes [x0, y0, x1, y1] etc.
+        int size = 21;
+        horizontalLines = new float[(size * 4)];
+        verticalLines = new float[size * 4];
+        // horizontal lines
+        float offset = dimensions / size;
+        float lastCoord = (float) (((horizontalLines.length - 5)/4) * offset);
+        for (int i = 0; i < horizontalLines.length; i += 4) {
+            horizontalLines[i] = 0;
+            horizontalLines[i + 1] = (float) (offset * (i/4));
+            horizontalLines[i + 2] = lastCoord;
+            horizontalLines[i + 3] = (float) (offset * (i/4));
+        }
+        // verticle lines
+        for (int i = 0; i < verticalLines.length; i += 4) {
+            verticalLines[i + 1] = 0;
+            verticalLines[i] = (float) (offset * (i/4));
+            verticalLines[i + 3] = lastCoord;
+            verticalLines[i + 2] = (float) (offset * (i/4));
+        }
     }
 }

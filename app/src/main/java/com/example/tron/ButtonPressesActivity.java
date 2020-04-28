@@ -10,7 +10,7 @@ public class ButtonPressesActivity extends MainActivity {
         findViewById(R.id.startGameButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View unused) {
-                setContentView(R.layout.snake_arena);
+                setContentView(R.layout.activity_game);
             }
         });
     }
@@ -22,7 +22,7 @@ public class ButtonPressesActivity extends MainActivity {
         findViewById(R.id.settingsButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View unused) {
-                setContentView(R.layout.player_settings);
+                setContentView(R.layout.activity_settings);
             }
         });
     }
@@ -34,7 +34,7 @@ public class ButtonPressesActivity extends MainActivity {
         findViewById(R.id.colorButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View unused) {
-                setContentView(R.layout.color_customization);
+                setContentView(R.layout.activity_final_color);
             }
         });
     }
@@ -46,7 +46,7 @@ public class ButtonPressesActivity extends MainActivity {
         findViewById(R.id.backToSettingsFromColor).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View unused) {
-                setContentView(R.layout.player_settings);
+                setContentView(R.layout.activity_settings);
             }
         });
     }
@@ -57,7 +57,7 @@ public class ButtonPressesActivity extends MainActivity {
         findViewById(R.id.designButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View unused) {
-                setContentView(R.layout.design_menu);
+                setContentView(R.layout.activity_design);
             }
         });
     }
@@ -68,7 +68,7 @@ public class ButtonPressesActivity extends MainActivity {
         findViewById(R.id.backToSettingsFromDesign).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View unused) {
-                setContentView(R.layout.design_menu);
+                setContentView(R.layout.activity_design);
             }
         });
     }

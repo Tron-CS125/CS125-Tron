@@ -9,7 +9,7 @@ public class SnakeActivity extends MainActivity {
     //code for snake arena goes here
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.snake_arena);
+        setContentView(R.layout.activity_game);
 
         Button next = (Button) findViewById(R.id.startGameButton);
         next.setOnClickListener(new View.OnClickListener() {
