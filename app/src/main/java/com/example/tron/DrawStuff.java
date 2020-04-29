@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -35,7 +34,7 @@ public class DrawStuff extends View {
     /**
      * Spacing between each square of grid.
      */
-    private int gridSpacing;
+    private int spacing;
     /**
      * boardSize(should be same as size but able to be changed).
      */
@@ -97,16 +96,15 @@ public class DrawStuff extends View {
 
         // SIZE MUST ALWAYS BE ODD NUMBER ABOVE 5
         size = 15;
-        gridSpacing = width / size;
-        Log.println(Log.ASSERT, "spacing","test " + gridSpacing);
-        boardSize = size * gridSpacing;
+        spacing = width / size;
+        boardSize = size * spacing;
         firstBody = new SnakeElement((int) Math.floor(size/2), (int) Math.floor(size/2));
 
         verticalLines = new float[(size + 1) * 4];
         //vertical lines
         for (int i = 0; i <= size; i++) {
 
-            startX = i * gridSpacing;
+            startX = i * spacing;
             startY = 0;
 
             stopX = startX;
@@ -129,7 +127,7 @@ public class DrawStuff extends View {
         for (int i = 0; i <= size; i++) {
 
             startX = 0;
-            startY = i * gridSpacing;
+            startY = i * spacing;
 
             stopX = boardSize;
             stopY = startY;
@@ -152,10 +150,10 @@ public class DrawStuff extends View {
     private void createBody() {
         for (int i = 1; i <= 4; i++) {
             SnakeElement body = new SnakeElement(firstBody.getGridPos()[0], firstBody.getGridPos()[1] + i);
-            body.setBottomSide(firstBody.getBottomSide()+ (gridSpacing * i));
+            body.setBottomSide(firstBody.getBottomSide()+ (spacing * i));
             body.setLeftSide(firstBody.getLeftSide());
             body.setRightSide(firstBody.getRightSide());
-            body.setTopSide(firstBody.getTopSide() + (gridSpacing * i));
+            body.setTopSide(firstBody.getTopSide() + (spacing * i));
             fullSnake.put(i, body);
         }
     }
