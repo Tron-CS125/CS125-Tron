@@ -7,6 +7,8 @@ import android.widget.Button;
 
 public class SnakeActivity extends MainActivity {
     //code for snake arena goes here
+    private int score = 0;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);

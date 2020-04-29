@@ -3,11 +3,13 @@ package com.example.tron;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -23,7 +25,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
     private void configureBackButton() {
-        Button backButton = (Button) findViewById(R.id.backFromOptions);
+        Button backButton = findViewById(R.id.backFromOptions);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,7 +34,7 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
     private void configureDesignButton() {
-        Button designButton = (Button) findViewById(R.id.designButton);
+        Button designButton = findViewById(R.id.designButton);
         designButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,12 +43,17 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
     private void configureColorButton() {
-        Button colorButton = (Button) findViewById(R.id.colorButton);
+        Button colorButton = findViewById(R.id.colorButton);
         colorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SettingsActivity.this, FinalColorActivity.class));
             }
         });
+    }
+    private void configureMusicSlider() {
+        //SeekBar musicBar = findViewById(R.id.musicSeekBar);
+        //SetMusicSliderActivity musicBarInfo = new SetMusicSliderActivity();
+
     }
 }
