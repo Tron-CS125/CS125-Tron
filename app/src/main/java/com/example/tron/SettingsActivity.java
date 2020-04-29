@@ -51,4 +51,9 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
     }
+    private void configureMusicSlider() {
+        //SeekBar musicBar = findViewById(R.id.musicSeekBar);
+        //SetMusicSliderActivity musicBarInfo = new SetMusicSliderActivity();
+
+    }
 }

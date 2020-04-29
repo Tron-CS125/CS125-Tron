@@ -11,7 +11,6 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 public class SetMusicSliderActivity extends Activity implements OnSeekBarChangeListener {
     private AudioManager audioManager;
     private int volume = 0;
-
     /**
      * This onCreate initialized the seekbar for Music.
      * reference code: https://mycodeandlife.wordpress.com/2012/07/13/android-seekbar-to-set-the-volume/
@@ -22,10 +21,10 @@ public class SetMusicSliderActivity extends Activity implements OnSeekBarChangeL
         setContentView(R.layout.activity_settings);
 
         SeekBar musicSeekBar = findViewById(R.id.musicSeekBar);
-        ChooseRandomSongActivity song = new ChooseRandomSongActivity();
-        MediaPlayer mediaPlayer = song.chooseRandomSong();
+        //ChooseRandomSongActivity song = new ChooseRandomSongActivity();
+        //MediaPlayer mediaPlayer = song.chooseRandomSong(getApplicationContext());
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        mediaPlayer.start();
+        //mediaPlayer.start();
         int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         int currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
 
