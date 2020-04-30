@@ -10,17 +10,19 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private boolean songStarted = false;
+    private static boolean songStarted = false;
+    private static MediaPlayer song;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (!songStarted) {
             //picks a song from the jukebox and plays it when the app opens. song loops
             songStarted = true;
             ChooseRandomSongActivity songInstance = new ChooseRandomSongActivity();
-            MediaPlayer song = songInstance.chooseRandomSong(getApplicationContext());
+            song = songInstance.chooseRandomSong(getApplicationContext());
             song.setLooping(true);
             song.start();
         }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         configureStartButton();
