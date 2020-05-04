@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
         android:id="@+id/leftButton"
-        android:layout_width="197dp"
-        android:layout_height="107dp"
+        android:layout_width="200dp"
+        android:layout_height="110dp"
+
         android:text="@string/left"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -16,15 +16,17 @@
     <com.example.tron.DrawStuff
         android:id="@+id/drawStuff"
         android:layout_width="match_parent"
-        android:layout_height="480dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="450dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/rightButton"
-        android:layout_width="197dp"
-        android:layout_height="101dp"
+        android:layout_width="200dp"
+        android:layout_height="110dp"
+
         android:text="@string/right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -35,5 +37,22 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="205dp" />
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="200dp"
+        android:layout_height="39dp"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drawStuff" />
+
+    <Button
+        android:id="@+id/restartButton"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:text="@string/restart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drawStuff" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
