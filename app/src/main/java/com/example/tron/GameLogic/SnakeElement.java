@@ -1,5 +1,6 @@
 package com.example.tron.GameLogic;
 
+
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -25,6 +26,7 @@ public class SnakeElement {
      * @param xPos Object's x coordinate
      * @param yPos Object's y coordinate
      */
+
     public SnakeElement(int xPos, int yPos) {
         gridPos = new int[2];
         gridPos[0] = xPos;
@@ -83,4 +85,5 @@ public class SnakeElement {
     public Paint getBodyPaint() {
         return bodyPaint;
     }
+
 }

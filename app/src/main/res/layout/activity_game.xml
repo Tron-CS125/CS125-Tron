@@ -8,6 +8,7 @@
         android:id="@+id/leftButton"
         android:layout_width="200dp"
         android:layout_height="110dp"
+
         android:text="@string/left"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -25,6 +26,7 @@
         android:id="@+id/rightButton"
         android:layout_width="200dp"
         android:layout_height="110dp"
+
         android:text="@string/right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -51,5 +53,6 @@
         android:text="@string/restart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drawStuff" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

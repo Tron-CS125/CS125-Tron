@@ -21,6 +21,7 @@ import com.example.tron.GameLogic.SnakeElement;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class DrawStuff extends View {
 
     DisplayMetrics metrics = getResources().getDisplayMetrics();
@@ -86,6 +87,7 @@ public class DrawStuff extends View {
      * boolean whether game is running
      */
     private static boolean gameState = true;
+
 
     public DrawStuff(Context context) {
         super(context);
@@ -168,6 +170,7 @@ public class DrawStuff extends View {
             lastBodyLastPos = fullSnake.get(fullSnake.size() - 1).getGridPos();
             tick++;
         }
+
     }
 
     /**
@@ -200,6 +203,7 @@ public class DrawStuff extends View {
             stopX = startX;
             stopY = GridLogic.getBoardsize();
 
+
             temp = i * 4;
             verticalLines[temp] = startX;
             verticalLines[temp + 1] = startY;
@@ -230,7 +234,31 @@ public class DrawStuff extends View {
             firstBody.setBodyPaint(Color.RED);
             fullSnake.add(firstBody);
             fullSnake.add(firstBody);
+            }
+
+        horizontalLines = new float[(size + 1) * 4];
+        //horizontal lines
+        for (int i = 0; i <= size; i++) {
+
+            startX = 0;
+            startY = i * spacing;
+
+            stopX = boardSize;
+            stopY = startY;
+            if (i == Math.floor((int)(size/2))) {
+                firstBody.setTopSide((int) startY);
+            }
+            if (i == Math.floor((int)(size/2)) + 1) {
+                firstBody.setBottomSide((int) startY);
+                bodyLength = i;
+            }
+            temp = i * 4;
+            horizontalLines[temp] = startX;
+            horizontalLines[temp + 1] = startY;
+            horizontalLines[temp + 2] = stopX;
+            horizontalLines[temp + 3] = stopY;
         }
+        fullSnake.put(0, firstBody);
     }
 
     /**
