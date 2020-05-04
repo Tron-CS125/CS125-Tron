@@ -3,6 +3,7 @@ package com.example.tron;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -11,16 +12,27 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private static boolean songStarted = false;
-    private static MediaPlayer song;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (!songStarted) {
             //picks a song from the jukebox and plays it when the app opens. song loops
             songStarted = true;
             ChooseRandomSongActivity songInstance = new ChooseRandomSongActivity();
-            song = songInstance.chooseRandomSong(getApplicationContext());
+            MediaPlayer song = songInstance.chooseRandomSong(getApplicationContext());
             song.setLooping(true);
             song.start();
+            GlobalMusicVariables x = GlobalMusicVariables.getInstance();
+            x.setData(song);
+            //default values: arena = 23x23, speed = 125, color = red
+            GlobalArenaSizeVariables arenaSize = GlobalArenaSizeVariables.getInstance();
+            arenaSize.setData(23);
+
+            GlobalColorVariables playerColor = GlobalColorVariables.getInstance();
+            playerColor.setData(Color.rgb(255, 48, 33));
+
+            GlobalSpeedVariables playerSpeed = GlobalSpeedVariables.getInstance();
+            playerSpeed.setData(125);
         }
 
         super.onCreate(savedInstanceState);
@@ -35,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, GameActivity.class));
+                Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -50,25 +63,25 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // this is basically a test method, don't mind it
-    private void snakeLeftButton() {
-        Button snakeLeftButton = (Button) findViewById(R.id.leftButton);
-        snakeLeftButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               // snakeLeft();
-            }
-        });
-    }
-
-    // also test method lol
-    private void snakeRightButton() {
-        Button snakeRightButton = (Button) findViewById(R.id.rightButton);
-        snakeRightButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // snakeRight();
-            }
-        });
-    }
+//    // this is basically a test method, don't mind it
+//    private void snakeLeftButton() {
+//        Button snakeLeftButton = (Button) findViewById(R.id.leftButton);
+//        snakeLeftButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//               // snakeLeft();
+//            }
+//        });
+//    }
+//
+//    // also test method lol
+//    private void snakeRightButton() {
+//        Button snakeRightButton = (Button) findViewById(R.id.rightButton);
+//        snakeRightButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // snakeRight();
+//            }
+//        });
+//    }
 }

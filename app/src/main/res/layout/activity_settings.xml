@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,7 +31,7 @@
             android:layout_height="43dp"
             android:layout_marginStart="74dp"
             android:layout_marginLeft="74dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="125dp"
             android:layout_marginEnd="80dp"
             android:layout_marginRight="80dp"
             android:layout_marginBottom="72dp"
@@ -38,7 +39,7 @@
             app:layout_constraintBottom_toTopOf="@+id/soundOptionsText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/designButton"
-            app:layout_constraintTop_toBottomOf="@+id/playerOptionsText" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/designButton"
@@ -46,7 +47,7 @@
             android:layout_height="43dp"
             android:layout_marginStart="73dp"
             android:layout_marginLeft="73dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="18dp"
             android:layout_marginEnd="50dp"
             android:layout_marginRight="50dp"
             android:layout_marginBottom="72dp"
@@ -55,21 +56,20 @@
             app:layout_constraintEnd_toStartOf="@+id/colorButton"
             app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/playerOptionsText" />
+            app:layout_constraintTop_toBottomOf="@+id/playerOptions" />
 
         <TextView
             android:id="@+id/playerOptionsText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="88dp"
-            android:layout_marginLeft="88dp"
             android:layout_marginTop="53dp"
-            android:layout_marginEnd="88dp"
-            android:layout_marginRight="88dp"
+            android:layout_marginEnd="400dp"
+            android:layout_marginRight="400dp"
             android:text="@string/player_options"
             android:textSize="36sp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/playerOptions"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -83,6 +83,7 @@
             android:layout_marginRight="86dp"
             android:text="@string/sound_options"
             android:textSize="36sp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/colorButton" />
@@ -148,6 +149,37 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/musicText" />
+
+        <ImageView
+            android:id="@+id/playerOptions"
+            android:layout_width="378dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="53dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/player_options"
+            android:contentDescription="@string/todo" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="362dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toTopOf="@+id/musicText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/sound_optinos"
+            android:contentDescription="@string/todo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

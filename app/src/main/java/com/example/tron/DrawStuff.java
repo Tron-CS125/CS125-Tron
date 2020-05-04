@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
 import android.os.CountDownTimer;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -20,7 +21,6 @@ import com.example.tron.GameLogic.SnakeElement;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class DrawStuff extends View {
 
@@ -88,7 +88,6 @@ public class DrawStuff extends View {
      */
     private static boolean gameState = true;
 
-
     public DrawStuff(Context context) {
         super(context);
         init(null);
@@ -123,7 +122,11 @@ public class DrawStuff extends View {
     }
 
     public void everyTick() {
-        new CountDownTimer(15000000, 250) {
+        //150 = normal speed
+        ///225 = slow speed
+        ///75 = fast speed
+        GlobalSpeedVariables v = GlobalSpeedVariables.getInstance();
+        new CountDownTimer(15000000, v.getData()) {
 
             public void onTick(long millisUntilFinished) {
                 if (gameState) {
@@ -170,7 +173,6 @@ public class DrawStuff extends View {
             lastBodyLastPos = fullSnake.get(fullSnake.size() - 1).getGridPos();
             tick++;
         }
-
     }
 
     /**
@@ -187,7 +189,11 @@ public class DrawStuff extends View {
         int width = canvas.getWidth();
 
         // SIZE MUST ALWAYS BE ODD NUMBER ABOVE 9
-        GridLogic.setSize(25);
+        //small: 15
+        //normal: 23
+        //large: 35
+        GlobalArenaSizeVariables x = GlobalArenaSizeVariables.getInstance();
+        GridLogic.setSize(x.getData());
 
         GridLogic.setSpacing(width / GridLogic.getSize());
 
@@ -202,7 +208,6 @@ public class DrawStuff extends View {
 
             stopX = startX;
             stopY = GridLogic.getBoardsize();
-
 
             temp = i * 4;
             verticalLines[temp] = startX;
@@ -231,34 +236,41 @@ public class DrawStuff extends View {
             direction[2] = false;
             direction[3]  = false;
             firstBody = new SnakeElement((int) Math.floor(GridLogic.getSize()/2), (int) Math.floor(GridLogic.getSize()/2));
-            firstBody.setBodyPaint(Color.RED);
+//            FinalColorActivity x = new FinalColorActivity();
+//            switch (x.getGlobalVarValue()) {
+//                case (0):
+//                    firstBody.setBodyPaint(Color.rgb(255, 48, 33));
+//                    break;
+//                case (1):
+//                    firstBody.setBodyPaint(Color.rgb(255, 137, 33));
+//                    break;
+//                case (2):
+//                    firstBody.setBodyPaint(Color.rgb(255, 240, 33));
+//                    break;
+//                case (3):
+//                    firstBody.setBodyPaint(Color.rgb(44, 255, 33));
+//                    break;
+//                case (4):
+//                    firstBody.setBodyPaint(Color.rgb(33, 137, 255));
+//                    break;
+//                case (5):
+//                    firstBody.setBodyPaint(Color.rgb(33, 255, 218));
+//                    break;
+//                case (6):
+//                    firstBody.setBodyPaint(Color.rgb(181, 33, 255));
+//                    break;
+//                case (7):
+//                    firstBody.setBodyPaint(Color.rgb(255, 165, 0));
+//                    break;
+//                default:
+//                    firstBody.setBodyPaint(Color.rgb(255, 48, 33));
+//                    break;
+//            }
+            GlobalColorVariables g = GlobalColorVariables.getInstance();
+            firstBody.setBodyPaint(g.getData());
             fullSnake.add(firstBody);
             fullSnake.add(firstBody);
-            }
-
-        horizontalLines = new float[(size + 1) * 4];
-        //horizontal lines
-        for (int i = 0; i <= size; i++) {
-
-            startX = 0;
-            startY = i * spacing;
-
-            stopX = boardSize;
-            stopY = startY;
-            if (i == Math.floor((int)(size/2))) {
-                firstBody.setTopSide((int) startY);
-            }
-            if (i == Math.floor((int)(size/2)) + 1) {
-                firstBody.setBottomSide((int) startY);
-                bodyLength = i;
-            }
-            temp = i * 4;
-            horizontalLines[temp] = startX;
-            horizontalLines[temp + 1] = startY;
-            horizontalLines[temp + 2] = stopX;
-            horizontalLines[temp + 3] = stopY;
         }
-        fullSnake.put(0, firstBody);
     }
 
     /**
@@ -458,3 +470,6 @@ public class DrawStuff extends View {
 
 
 }
+
+
+

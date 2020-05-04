@@ -27,5 +27,16 @@
     <string name="right">Right</string>
     <string name="score">Score: %s</string>
     <string name="restart">Restart</string>
+    <string name="todo">TODO</string>
+    <string name="arena_size">Arena Size</string>
+    <string name="_16_x_16">16 x 16</string>
+    <string name="_36_x_36">36 x 36</string>
+    <string name="_25_x_25">25 x 25</string>
+    <string name="fast">Fast</string>
+    <string name="player_speed">Player Speed</string>
+    <string name="normal">Normal</string>
+    <string name="slow">Slow</string>
+    <string name="small">Small</string>
+    <string name="large">Large</string>
 
 </resources>

@@ -12,76 +12,81 @@
         tools:layout_editor_absoluteY="111dp">
 
         <Button
-            android:id="@+id/pinkButton"
-            android:layout_width="111dp"
-            android:layout_height="61dp"
-            android:layout_marginStart="244dp"
-            android:layout_marginLeft="244dp"
-            android:layout_marginTop="400dp"
-            android:background="#EE56FF"
-            android:text="@string/pink"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/purpleButton"
-            android:layout_width="111dp"
-            android:layout_height="61dp"
-            android:layout_marginStart="55dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="400dp"
-            android:layout_marginEnd="77dp"
-            android:layout_marginRight="77dp"
-            android:background="#965CFF"
-            android:text="@string/purple"
-            app:layout_constraintEnd_toStartOf="@+id/orangeButton"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
             android:id="@+id/blueButton"
             android:layout_width="111dp"
             android:layout_height="61dp"
-            android:layout_marginStart="55dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="284dp"
-            android:layout_marginEnd="77dp"
-            android:layout_marginRight="77dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="130dp"
+            android:layout_marginBottom="60dp"
             android:background="#03A9F4"
             android:text="@string/blue"
-            app:layout_constraintEnd_toStartOf="@+id/orangeButton"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintBottom_toTopOf="@+id/purpleButton"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/yellowButton" />
 
         <Button
             android:id="@+id/tealButton"
             android:layout_width="111dp"
             android:layout_height="61dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="284dp"
-            android:layout_marginEnd="57dp"
-            android:layout_marginRight="57dp"
+            android:layout_marginTop="130dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginRight="56dp"
             android:background="#00BCD4"
             android:text="@string/teal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/redButton"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/greenButton" />
+
+        <Button
+            android:id="@+id/pinkButton"
+            android:layout_width="111dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="57dp"
+            android:layout_marginRight="57dp"
+            android:background="#EE56FF"
+            android:text="@string/pink"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tealButton" />
+
+        <Button
+            android:id="@+id/purpleButton"
+            android:layout_width="111dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="79dp"
+            android:layout_marginRight="79dp"
+            android:background="#965CFF"
+            android:text="@string/purple"
+            app:layout_constraintEnd_toStartOf="@+id/pinkButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/blueButton" />
 
         <Button
             android:id="@+id/greenButton"
             android:layout_width="111dp"
             android:layout_height="61dp"
-            android:layout_marginStart="244dp"
-            android:layout_marginLeft="244dp"
-            android:layout_marginTop="172dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginRight="56dp"
             android:background="#4CAF50"
             android:text="@string/green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/orangeButton" />
+
+        <Button
+            android:id="@+id/yellowButton"
+            android:layout_width="111dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="29dp"
+            android:background="#FFEB3B"
+            android:text="@string/yellow"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/redButton" />
 
         <Button
             android:id="@+id/redButton"
@@ -90,27 +95,8 @@
             android:layout_marginStart="55dp"
             android:layout_marginLeft="55dp"
             android:layout_marginTop="61dp"
-            android:layout_marginEnd="77dp"
-            android:layout_marginRight="77dp"
             android:background="#F44336"
             android:text="@string/red"
-            app:layout_constraintEnd_toStartOf="@+id/orangeButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/yellowButton"
-            android:layout_width="111dp"
-            android:layout_height="61dp"
-            android:layout_marginStart="55dp"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="172dp"
-            android:layout_marginEnd="77dp"
-            android:layout_marginRight="77dp"
-            android:background="#FFEB3B"
-            android:text="@string/yellow"
-            app:layout_constraintEnd_toStartOf="@+id/orangeButton"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,21 +104,18 @@
             android:id="@+id/orangeButton"
             android:layout_width="111dp"
             android:layout_height="61dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="61dp"
             android:layout_marginEnd="57dp"
             android:layout_marginRight="57dp"
             android:background="#FF9800"
             android:text="@string/orange"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/redButton"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/backToSettingsFromColor"
-            android:layout_width="138dp"
-            android:layout_height="82dp"
+            android:layout_width="108dp"
+            android:layout_height="59dp"
             android:layout_marginStart="136dp"
             android:layout_marginLeft="136dp"
             android:layout_marginTop="28dp"
@@ -142,9 +125,129 @@
             android:text="@string/go_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pinkButton" />
+            app:layout_constraintTop_toBottomOf="@+id/pinkButton"
+            app:layout_constraintVertical_bias="0.991" />
+
+        <ImageView
+            android:id="@+id/redColorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="94dp"
+            android:layout_marginLeft="94dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="94dp"
+            android:layout_marginRight="94dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/greenButton"
+            app:srcCompat="@drawable/color_red"
+            android:contentDescription="@string/todo" />
+
+        <ImageView
+            android:id="@+id/orangeColorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="94dp"
+            android:layout_marginLeft="94dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="94dp"
+            android:layout_marginRight="94dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/greenButton"
+            app:srcCompat="@drawable/color_orange"
+            android:contentDescription="@string/todo" />
+
+        <ImageView
+            android:id="@+id/yellowColorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="94dp"
+            android:layout_marginLeft="94dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="94dp"
+            android:layout_marginRight="94dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/greenButton"
+            app:srcCompat="@drawable/color_yellow"
+            android:contentDescription="@string/todo" />
+
+        <ImageView
+            android:id="@+id/greenColorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="94dp"
+            android:layout_marginLeft="94dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="94dp"
+            android:layout_marginRight="94dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/greenButton"
+            app:srcCompat="@drawable/color_green"
+            android:contentDescription="@string/todo" />
+
+        <ImageView
+            android:id="@+id/blueColorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="94dp"
+            android:layout_marginLeft="94dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="94dp"
+            android:layout_marginRight="94dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/greenButton"
+            app:srcCompat="@drawable/color_blue"
+            android:contentDescription="@string/todo" />
+
+        <ImageView
+            android:id="@+id/tealColorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="94dp"
+            android:layout_marginLeft="94dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="94dp"
+            android:layout_marginRight="94dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/greenButton"
+            app:srcCompat="@drawable/color_teal"
+            android:contentDescription="@string/todo" />
+
+        <ImageView
+            android:id="@+id/purpleColorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="94dp"
+            android:layout_marginLeft="94dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="94dp"
+            android:layout_marginRight="94dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/greenButton"
+            app:srcCompat="@drawable/color_purple"
+            android:contentDescription="@string/todo" />
+
+        <ImageView
+            android:id="@+id/pinkColorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="94dp"
+            android:layout_marginLeft="94dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="94dp"
+            android:layout_marginRight="94dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/greenButton"
+            app:srcCompat="@drawable/color_pink"
+            android:contentDescription="@string/todo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
