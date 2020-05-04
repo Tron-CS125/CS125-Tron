@@ -22,7 +22,6 @@ public class SettingsActivity extends AppCompatActivity {
         configureDesignButton();
         configureColorButton();
 
-
     }
     private void configureBackButton() {
         Button backButton = findViewById(R.id.backFromOptions);
@@ -50,10 +49,5 @@ public class SettingsActivity extends AppCompatActivity {
                 startActivity(new Intent(SettingsActivity.this, FinalColorActivity.class));
             }
         });
-    }
-    private void configureMusicSlider() {
-        //SeekBar musicBar = findViewById(R.id.musicSeekBar);
-        //SetMusicSliderActivity musicBarInfo = new SetMusicSliderActivity();
-
     }
 }

@@ -6,34 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!--        app:srcCompat="@drawable/snakeLogo" />-->
+
     <Button
         android:id="@+id/startGameButton"
         android:layout_width="212dp"
         android:layout_height="79dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="88dp"
         android:text="@string/startButton"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/snakeImageStart"
-        android:layout_width="322dp"
-        android:layout_height="319dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="148dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
-        android:layout_marginBottom="64dp"
-        android:contentDescription="@string/initial_image_for_tron_game"
-        app:layout_constraintBottom_toTopOf="@+id/startGameButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-<!--        app:srcCompat="@drawable/snakeLogo" />-->
 
     <Button
         android:id="@+id/settingsButton"
@@ -51,19 +36,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/startGameButton" />
 
-    <TextView
-        android:id="@+id/titleSnake"
-        android:layout_width="220dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="97dp"
-        android:layout_marginLeft="97dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:text="@string/ultimate_snake_replace_later_with_custom_logo"
-        android:textSize="18sp"
+    <ImageView
+        android:id="@+id/snakeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/snake_logo" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="346dp"
+        android:layout_height="389dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="68dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/snakeTitle"
+        app:srcCompat="@drawable/snake_logo_2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

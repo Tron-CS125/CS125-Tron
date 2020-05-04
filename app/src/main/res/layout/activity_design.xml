@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -21,5 +22,119 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/normalArena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="37dp"
+            android:layout_marginLeft="37dp"
+            android:layout_marginTop="22dp"
+            android:text="@string/normal"
+            app:layout_constraintStart_toEndOf="@+id/smallArena"
+            app:layout_constraintTop_toBottomOf="@+id/arenaSizeText" />
+
+        <Button
+            android:id="@+id/smallArena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="33dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="159dp"
+            android:text="@string/small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/normalSpeed"
+            android:layout_width="88dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:text="@string/normal"
+            app:layout_constraintEnd_toStartOf="@+id/fastSpeed"
+            app:layout_constraintStart_toEndOf="@+id/slowSpeed"
+            app:layout_constraintTop_toBottomOf="@+id/playerSpeedText" />
+
+        <Button
+            android:id="@+id/slowSpeed"
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="33dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="308dp"
+            android:text="@string/slow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/normalSpeed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playerSpeedText"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/fastSpeed"
+            android:layout_width="88dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginRight="36dp"
+            android:text="@string/fast"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playerSpeedText" />
+
+        <Button
+            android:id="@+id/largeArena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="41dp"
+            android:layout_marginLeft="41dp"
+            android:layout_marginTop="159dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginRight="36dp"
+            android:text="@string/large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/normalArena"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/arenaSizeText"
+            android:layout_width="306dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="97dp"
+            android:layout_marginEnd="53dp"
+            android:layout_marginRight="53dp"
+            android:layout_marginBottom="22dp"
+            app:layout_constraintBottom_toTopOf="@+id/normalArena"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/arena_size_text"
+            android:contentDescription="@string/todo" />
+
+        <ImageView
+            android:id="@+id/playerSpeedText"
+            android:layout_width="387dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="315dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="18dp"
+            android:contentDescription="@string/todo"
+            app:layout_constraintBottom_toTopOf="@+id/normalSpeed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/player_speed_logo" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
