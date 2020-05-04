@@ -25,4 +25,7 @@
     <string name="ultimate_snake_replace_later_with_custom_logo">ULTIMATE SNAKE (replace later with custom logo)</string>
     <string name="left">Left</string>
     <string name="right">Right</string>
+    <string name="score">Score: %s</string>
+    <string name="restart">Restart</string>
+
 </resources>
