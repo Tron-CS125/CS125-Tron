@@ -161,8 +161,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/todo" />
-        <!--            app:srcCompat="@drawable/player_options"-->
+            android:contentDescription="@string/todo"
+            app:srcCompat="@drawable/player_options" />
 
 
         <ImageView
@@ -178,8 +178,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            android:contentDescription="@string/todo" />
-<!--        app:srcCompat="@drawable/sound_optinos"-->
+            android:contentDescription="@string/todo"
+            app:srcCompat="@drawable/sound_optinos" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
