@@ -4,17 +4,17 @@ public class GridLogic {
     /**
      * Desired size of board ex 15 * 15
      */
-    private static int size;
+    private static int size = 23;
 
     /**
      * Spacing between grid squares
      */
-    private static int spacing;
+    private static float spacing;
 
     /**
      * total board size
      */
-    private static int boardsize;
+    private static float boardsize;
 
     /**
      * score for the current game
@@ -29,27 +29,19 @@ public class GridLogic {
         return size;
     }
 
-    public static void setSpacing(int setSpacing) {
+    public static void setSpacing(float setSpacing) {
         spacing = setSpacing;
     }
 
-    public static int getSpacing() {
+    public static float getSpacing() {
         return spacing;
     }
 
-    public static void setBoardsize(int setBoardSize) {
+    public static void setBoardsize(float setBoardSize) {
         boardsize = setBoardSize;
     }
 
-    public static int getBoardsize() {
+    public static float getBoardsize() {
         return boardsize;
-    }
-
-    public static int getScore() {
-        return score;
-    }
-
-    public static void setScore(int setScore) {
-        score = setScore;
     }
 }
