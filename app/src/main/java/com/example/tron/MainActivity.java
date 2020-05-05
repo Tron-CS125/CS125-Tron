@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         configureStartButton();
         configureSettingsButton();
-
     }
 
     private void configureStartButton() {
@@ -62,26 +61,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-//    // this is basically a test method, don't mind it
-//    private void snakeLeftButton() {
-//        Button snakeLeftButton = (Button) findViewById(R.id.leftButton);
-//        snakeLeftButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//               // snakeLeft();
-//            }
-//        });
-//    }
-//
-//    // also test method lol
-//    private void snakeRightButton() {
-//        Button snakeRightButton = (Button) findViewById(R.id.rightButton);
-//        snakeRightButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // snakeRight();
-//            }
-//        });
-//    }
 }

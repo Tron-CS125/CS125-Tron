@@ -9,7 +9,7 @@ public class GlobalArenaSizeVariables {
     private int data;
 
     // Restrict the constructor from being instantiated
-    private GlobalArenaSizeVariables(){}
+    private GlobalArenaSizeVariables(){ }
 
     public void setData(int inputData){
         this.data = inputData;

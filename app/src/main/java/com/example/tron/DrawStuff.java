@@ -1,17 +1,16 @@
 package com.example.tron;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
 import android.os.CountDownTimer;
-import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -79,17 +78,15 @@ public class DrawStuff extends View {
     private static int tick = 0;
 
     /**
-     * boolean to state whether game has been restarted
-     */
-    private boolean hasRestarted = false;
-
-    /**
      * boolean whether game is running
      */
     private static boolean gameState = true;
 
+    Context context;
+
     public DrawStuff(Context context) {
         super(context);
+        this.context = context;
         init(null);
     }
 
@@ -119,6 +116,8 @@ public class DrawStuff extends View {
         rectPaint.setColor(Color.GREEN);
         linePaint.setColor(Color.BLACK);
         linePaint.setStyle(Paint.Style.STROKE);
+        tick = 0;
+        startGame();
     }
 
     public void everyTick() {
@@ -131,10 +130,13 @@ public class DrawStuff extends View {
             public void onTick(long millisUntilFinished) {
                 if (gameState) {
                     postInvalidate();
+                } else {
+                    cancel();
                 }
             }
 
             public void onFinish() {
+                cancel();
                 gameState = false;
             }
         }.start();
@@ -151,9 +153,7 @@ public class DrawStuff extends View {
             score = 0;
             createBody();
             createFruit();
-            if (!hasRestarted) {
-                everyTick();
-            }
+            everyTick();
         }
         while (collectFruit()) {
             addBody();
@@ -162,14 +162,18 @@ public class DrawStuff extends View {
         for (int i = 0; i < fullSnake.size(); i++) {
             canvas.drawRect(fullSnake.get(i).getRect(), fullSnake.get(i).getBodyPaint());
         }
-        if (!checkValidGridPos(firstBody.getGridPos()) || snakeRule()) {
-            makeLines(canvas);
+        if ((!checkValidGridPos(firstBody.getGridPos()) || snakeRule()) && gameState) {
             gameState = false;
+            try {
+                endGame();
+            } catch (Exception e) {
+                Log.println(Log.WARN, "Exception", "boobs " + e);
+            }
         } else {
             moveInDirection();
-            canvas.drawRect(fruit.getRect(), fruit.getBodyPaint());
             canvas.drawLines(horizontalLines, linePaint);
             canvas.drawLines(verticalLines, linePaint);
+            canvas.drawRect(fruit.getRect(), fruit.getBodyPaint());
             lastBodyLastPos = fullSnake.get(fullSnake.size() - 1).getGridPos();
             tick++;
         }
@@ -186,7 +190,7 @@ public class DrawStuff extends View {
         float startY;
         float stopY;
 
-        int width = canvas.getWidth();
+        float width = canvas.getWidth();
 
         // SIZE MUST ALWAYS BE ODD NUMBER ABOVE 9
         //small: 15
@@ -194,7 +198,9 @@ public class DrawStuff extends View {
         //large: 35
         GlobalArenaSizeVariables x = GlobalArenaSizeVariables.getInstance();
         GridLogic.setSize(x.getData());
-
+        if (GridLogic.getSize() <= 0) {
+            GridLogic.setSize(23);
+        }
         GridLogic.setSpacing(width / GridLogic.getSize());
 
         GridLogic.setBoardsize(GridLogic.getSize() * GridLogic.getSpacing());
@@ -208,6 +214,7 @@ public class DrawStuff extends View {
 
             stopX = startX;
             stopY = GridLogic.getBoardsize();
+
 
             temp = i * 4;
             verticalLines[temp] = startX;
@@ -234,38 +241,8 @@ public class DrawStuff extends View {
             direction[0] = true;
             direction[1] = false;
             direction[2] = false;
-            direction[3]  = false;
+            direction[3] = false;
             firstBody = new SnakeElement((int) Math.floor(GridLogic.getSize()/2), (int) Math.floor(GridLogic.getSize()/2));
-//            FinalColorActivity x = new FinalColorActivity();
-//            switch (x.getGlobalVarValue()) {
-//                case (0):
-//                    firstBody.setBodyPaint(Color.rgb(255, 48, 33));
-//                    break;
-//                case (1):
-//                    firstBody.setBodyPaint(Color.rgb(255, 137, 33));
-//                    break;
-//                case (2):
-//                    firstBody.setBodyPaint(Color.rgb(255, 240, 33));
-//                    break;
-//                case (3):
-//                    firstBody.setBodyPaint(Color.rgb(44, 255, 33));
-//                    break;
-//                case (4):
-//                    firstBody.setBodyPaint(Color.rgb(33, 137, 255));
-//                    break;
-//                case (5):
-//                    firstBody.setBodyPaint(Color.rgb(33, 255, 218));
-//                    break;
-//                case (6):
-//                    firstBody.setBodyPaint(Color.rgb(181, 33, 255));
-//                    break;
-//                case (7):
-//                    firstBody.setBodyPaint(Color.rgb(255, 165, 0));
-//                    break;
-//                default:
-//                    firstBody.setBodyPaint(Color.rgb(255, 48, 33));
-//                    break;
-//            }
             GlobalColorVariables g = GlobalColorVariables.getInstance();
             firstBody.setBodyPaint(g.getData());
             fullSnake.add(firstBody);
@@ -331,6 +308,9 @@ public class DrawStuff extends View {
         firstBody.setGridPos(pos);
     }
 
+    /**
+     * function that assigns each body part to the body part in front of it's position besides firstBody
+     */
     private static void followBody() {
         int[] pos = firstBody.getGridPos();
         int[] temp;
@@ -341,19 +321,28 @@ public class DrawStuff extends View {
         }
     }
 
+    /**
+     * Adds a body part to the snake and also updates score
+     */
     private void addBody() {
         SnakeElement body = new SnakeElement(lastBodyLastPos[0], lastBodyLastPos[1]);
         fullSnake.add(body);
-        GridLogic.setScore(score += 1);
-        score = GridLogic.getScore();
+        score++;
     }
 
+    /**
+     * creates the fruit square as a snakeEleemnt Object
+     */
     private void createFruit() {
         int[] gridPos = createRandomGridPos();
         fruit = new SnakeElement(gridPos[0], gridPos[1]);
         fruit.setBodyPaint(Color.CYAN);
     }
 
+    /**
+     * Generates a random valid position on the board
+     * @return gridpos as int[x, y]
+     */
     private int[] createRandomGridPos() {
         int[] gridPos = new int[2];
         gridPos[0] = (int)Math.floor((Math.random() * GridLogic.getSize()));
@@ -361,6 +350,11 @@ public class DrawStuff extends View {
         return gridPos;
     }
 
+    /**
+     * check's if the specified gridpos is valid
+     * @param gridPos grid pos to be checked
+     * @return boolean whether a position is valid
+     */
     private boolean checkValidGridPos(int[] gridPos) {
         for (int i : gridPos) {
             if (i > GridLogic.getSize() - 1 || i < 0) {
@@ -370,6 +364,10 @@ public class DrawStuff extends View {
         return true;
     }
 
+    /**
+     * returns whether a snake is violating the snake rule
+     * @return if the snake is on top of itself
+     */
     private boolean snakeRule() {
         int counter = 0;
         for (int i = 1; i < fullSnake.size(); i++) {
@@ -384,6 +382,10 @@ public class DrawStuff extends View {
         return false;
     }
 
+    /**
+     * returns whether a snake bodypart is on the same square as the fruit
+     * @return boolean whether the snake is on the same square as the fruit
+     */
     private boolean collectFruit() {
         for (SnakeElement b : fullSnake) {
             if (b.getGridPos()[0] == fruit.getGridPos()[0] && b.getGridPos()[1] == fruit.getGridPos()[1]) {
@@ -393,6 +395,9 @@ public class DrawStuff extends View {
         return false;
     }
 
+    /**
+     * moves the snake in the direction it is going
+     */
     private static void moveInDirection() {
         for (int i = 0; i < direction.length; i++) {
             if (direction[i]) {
@@ -413,6 +418,9 @@ public class DrawStuff extends View {
         }
     }
 
+    /**
+     * updates the directions to move the snake where it should be going if right button is pushed
+     */
     public static void rightButton() {
         for (int i = 0; i < direction.length; i++) {
             if (direction[i]) {
@@ -437,6 +445,9 @@ public class DrawStuff extends View {
         }
     }
 
+    /**
+     * updates the directions to move the snake where it should be going if left button is pushed
+     */
     public static void leftButton() {
         for (int i = 0; i < direction.length; i++) {
             if (direction[i]) {
@@ -461,15 +472,21 @@ public class DrawStuff extends View {
         }
     }
 
-    public void restartGame() {
+    public void endGame() {
+        Intent i = new Intent(context, GameOverActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(i);
+    }
+
+    /**
+     * starts the game
+     */
+    public void startGame() {
         tick = 0;
         gameState = true;
-        hasRestarted = true;
         fullSnake.clear();
+        postInvalidate();
     }
 
 
 }
-
-
-

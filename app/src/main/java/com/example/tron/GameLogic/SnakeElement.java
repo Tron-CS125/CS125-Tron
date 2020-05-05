@@ -39,10 +39,10 @@ public class SnakeElement {
      * Creates the Object rectangle
      */
     private void makeRect() {
-        rect.top = gridPos[1] * GridLogic.getSpacing();
-        rect.bottom = (gridPos[1] + 1) * GridLogic.getSpacing();
-        rect.left = gridPos[0] * GridLogic.getSpacing();
-        rect.right = (gridPos[0] + 1) * GridLogic.getSpacing();
+        rect.top = (int) (gridPos[1] * GridLogic.getSpacing());
+        rect.bottom = (int) ((gridPos[1] + 1) * GridLogic.getSpacing());
+        rect.left = (int) (gridPos[0] * GridLogic.getSpacing());
+        rect.right = (int) ((gridPos[0] + 1) * GridLogic.getSpacing());
     }
 
     /**

@@ -47,12 +47,24 @@
         app:layout_constraintTop_toBottomOf="@+id/drawStuff" />
 
     <Button
-        android:id="@+id/restartButton"
-        android:layout_width="200dp"
-        android:layout_height="48dp"
-        android:text="@string/restart"
+        android:id="@+id/endGameButton"
+        android:layout_width="201dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="1dp"
+        android:text="@string/endgame"
+        app:layout_constraintBottom_toTopOf="@+id/leftButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/drawStuff" />
+
+    <!--    <Button-->
+<!--        android:id="@+id/restartButton"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:text="@string/restart"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/drawStuff" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
